@@ -23,16 +23,13 @@ public class MouseStrax : MonoBehaviour {
         if (Input.GetMouseButton(0)|| Input.GetMouseButtonDown(0))
         {
             if(MouseIsInBounds()){
-            transform.position =  Camera.main.ScreenToWorldPoint(Input.mousePosition)+new Vector3(0f,0f,20f);
+            transform.position  =  Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0f,0f,0f);
             
-            int L = 1;
-            if((int)(Mathf.Floor((transform.position.x+9f) * 2f) % 8f) < 0 ){
-                L = -1;
-                Debug.Log("Hi");
-            }
                 //x axis is changes the notes y axis is changes the octave
-            float note_on = notes[(int)(Mathf.Floor((transform.position.x+9f) * 2f) % 8f) * L] + Mathf.Floor(transform.position.y + 2) * 12f +20f;
-
+            //float note_on = notes[(int)(Mathf.Floor((transform.position.x+9f) * 2f) % 8f) * L] + Mathf.Floor(transform.position.y + 5) * 12f;// +20f;
+              //  Debug.Log(transform.position.y + 5);
+                float note_on = Mathf.Floor((transform.position.y + 5) * 12.7f );//- 69f;
+                //float note_on = Currentnote;
             Currentnote  = note_on;
             if (!selected)
             {

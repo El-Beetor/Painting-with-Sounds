@@ -101,14 +101,19 @@ public class Paint : MonoBehaviour
                 //Debug.Log("Fire");
                 mousePosition = new Vector2 (Input.mousePosition.x, Input.mousePosition.y);
                 if(MouseIsInBounds()&&NumLines>-1&&listPoints[NumLines][0] != listPoints[NumLines][listPoints[NumLines].Count -1]){
-                    lines[NumLines].AddComponent<MeshCollider>();   
-                    MeshCollider meshCollider = lines[NumLines].GetComponent<MeshCollider>();      
-                    Mesh mesh = new Mesh();
-                    lr.BakeMesh(mesh, true);
-                    meshCollider.sharedMesh = mesh;
+                    // lines[NumLines].AddComponent<MeshCollider>();   
+                    // MeshCollider meshCollider = lines[NumLines].GetComponent<MeshCollider>();      
+                    // Mesh mesh = new Mesh();
+                    // lr.BakeMesh(mesh, true);
+                    // meshCollider.sharedMesh = mesh;
+                    EdgeCollider2D collider2d = lines[NumLines].AddComponent<EdgeCollider2D>();  
+                    //lines[NumLines].AddComponent<BoxCollider2D>();
+                    // Mesh mesh = new Mesh();
+                    // lr.BakeMesh(mesh, true);
+                    // meshCollider.sharedMesh = mesh;
                     //Adds the scrpt PlayLine to the finished Line
                     lines[NumLines].AddComponent<PlayLine>();
-                    lines[NumLines].GetComponent<PlayLine>().points = listPoints[NumLines];
+                    lines[NumLines].GetComponent<PlayLine>().pointsV = listPoints[NumLines];
                     lines[NumLines].AddComponent<pxStrax>();
                 }
             }
