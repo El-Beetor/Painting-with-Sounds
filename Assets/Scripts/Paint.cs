@@ -114,6 +114,7 @@ public class Paint : MonoBehaviour
                     //Adds the scrpt PlayLine to the finished Line
                     lines[NumLines].AddComponent<PlayLine>();
                     lines[NumLines].GetComponent<PlayLine>().pointsV = listPoints[NumLines];
+                    lines[NumLines].AddComponent<AudioSource>();
                     lines[NumLines].AddComponent<pxStrax>();
                 }
             }
