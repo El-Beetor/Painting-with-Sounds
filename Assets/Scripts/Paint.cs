@@ -82,6 +82,8 @@ public class Paint : MonoBehaviour
             mousePosition = new Vector2 (Input.mousePosition.x, Input.mousePosition.y);
             objPosition = Camera.main.ScreenToWorldPoint (mousePosition);
             // Checking that our mouse is in bounds, which is stored in our height and width variable and as long as it has a "positive value"
+          //  if(Input.GetMouseButtonDown(0)){CreateLine();};
+
             if(MouseIsInBounds())
             {
              if(Input.GetMouseButtonDown(0)){CreateLine();};
@@ -98,11 +100,16 @@ public class Paint : MonoBehaviour
             if (Input.GetButtonUp("Fire1")){
                 //Debug.Log("Fire");
                 mousePosition = new Vector2 (Input.mousePosition.x, Input.mousePosition.y);
-                if(MouseIsInBounds()&&NumLines>-1){
-                    MeshCollider meshCollider = lines[NumLines].AddComponent<MeshCollider>();                    
+                if(MouseIsInBounds()&&NumLines>-1&&listPoints[NumLines][0] != listPoints[NumLines][listPoints[NumLines].Count -1]){
+                    lines[NumLines].AddComponent<MeshCollider>();   
+                    MeshCollider meshCollider = lines[NumLines].GetComponent<MeshCollider>();      
                     Mesh mesh = new Mesh();
                     lr.BakeMesh(mesh, true);
                     meshCollider.sharedMesh = mesh;
+                    //Adds the scrpt PlayLine to the finished Line
+                    lines[NumLines].AddComponent<PlayLine>();
+                    lines[NumLines].GetComponent<PlayLine>().points = listPoints[NumLines];
+                    lines[NumLines].AddComponent<pxStrax>();
                 }
             }
     }
@@ -138,6 +145,15 @@ public class Paint : MonoBehaviour
                  };
                  //GameObject.Destroy(myLine, duration);
              }
+
+    public void Undo(){
+        //if(NumLines)
+        Destroy(lines[lines.Count -1]);
+        listPoints.RemoveAt(lines.Count -1);
+        lines.RemoveAt(lines.Count -1);
+        NumLines--;
+        CreateLine();        
+    }
 
 
 }
