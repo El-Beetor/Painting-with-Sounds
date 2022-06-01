@@ -11,6 +11,7 @@ public class Paint : MonoBehaviour
     public FlexibleColorPicker fcp;
     public Slider sil;
     public Transform Panel;
+    public GameObject TheSynth;
 
     private Vector2 mousePosition;
     private Vector2 objPosition;
@@ -114,8 +115,10 @@ public class Paint : MonoBehaviour
                     //Adds the scrpt PlayLine to the finished Line
                     lines[NumLines].AddComponent<PlayLine>();
                     lines[NumLines].GetComponent<PlayLine>().pointsV = listPoints[NumLines];
-                    lines[NumLines].AddComponent<AudioSource>();
-                    lines[NumLines].AddComponent<pxStrax>();
+                    //lines[NumLines].AddComponent<AudioSource>();
+                    //lines[NumLines].AddComponent<pxStrax>();
+                     lines[NumLines].GetComponent<PlayLine>().TheSynth = TheSynth;
+                     lines[NumLines].GetComponent<PlayLine>().c = c1;
                 }
             }
     }
