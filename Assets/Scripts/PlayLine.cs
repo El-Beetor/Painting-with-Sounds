@@ -58,19 +58,11 @@ public class PlayLine : MonoBehaviour
              //   if(timePerNote >= interval){
                     if( i < pointsV.Count){
                    // float note_on = Mathf.Floor((pointsV[i].y + 5) * 8.8f) + 21;
-                      float note_on = (pointsV[i].y + 5) * 2.4f + 40;//- 69f;
-                //    // timePerNote = 0;
-                //     synths.KeyOff();
-                //     synths.KeyOn(note_on);
-               // float temp =TheSynth.GetComponent<pxStrax>().volume ;
-               // TheSynth.GetComponent<pxStrax>().volume = c.a;//map(c.a,0,255,0.0f,1.0f);
-                //Debug.Log(map(c.a,0,255,0,1));
-                 //TheSynth.GetComponent<pxStrax>().Release = ;
-                //  float attack = map(c.b, 0f,255f,0f,0.2f);
-                //  float release = map(c.r, 0f,255f,0f,0.5f);
-                //  float envelope = map(c.g, 0f,255f,0f,0.1f);
-                //Debug.Log(c);
+
+                 float note_on = (pointsV[i].y + 5) * 2.4f + 48;//- 69f;
+     
                 TheSynth.GetComponent<PlayAllSounds>().PlayNote(note_on, c);
+                
                // TheSynth.GetComponent<pxStrax>().volume = temp;
                     // if (!selected)
                     // {

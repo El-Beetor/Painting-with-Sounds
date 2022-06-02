@@ -39,7 +39,7 @@ public class MouseStrax : MonoBehaviour {
             //float note_on = notes[(int)(Mathf.Floor((transform.position.x + 9f) * 2f) % 8f)] + Mathf.Floor(transform.position.y + 5) * 12f + 21;// +20f;
               //  Debug.Log(transform.position.y + 5);
                // float note_on = Mathf.Floor((transform.position.y + 5) * 2.4f) + 40;//- 69f;
-                 float note_on = (transform.position.y + 5) * 2.4f + 40;//- 69f;
+                 float note_on = (transform.position.y + 5) * 2.4f + 48;//- 69f;
                 //float note_on = Currentnote;
             Currentnote  = note_on;
             if (!selected)
